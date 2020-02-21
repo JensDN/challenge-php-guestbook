@@ -12,9 +12,10 @@ class Guestbook
        return isset($this->guestbook);
    }
    public function render(){
-       $reversearr = array_reverse($this->guestbook);
-       $reverseguestbook = array_slice($reversearr, 0, 20) ;
-
+       if(isset($this->guestbook)) {
+           $reversearr = array_reverse($this->guestbook);
+           $reverseguestbook = array_slice($reversearr, 0, 20);
+       }
        require 'View/includes/guestbook.php';
    }
 }
